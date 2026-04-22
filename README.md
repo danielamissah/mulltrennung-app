@@ -74,3 +74,89 @@ Scan the QR code with Expo Go. The app runs on your phone immediately.
 ---
 
 ## Project Structure
+src/
+├── components/
+│   ├── BinCard.tsx          # Coloured result card with tip
+│   ├── CityPicker.tsx       # Horizontal city selector chips
+│   └── LanguageToggle.tsx   # EN / DE toggle pill
+├── data/
+│   └── rules/
+│       ├── berlin.json      # Berlin-specific bin rules
+│       ├── hamburg.json     # Hamburg-specfic bin rules
+│       ├── munich.json      # Munich-specific bin rules
+│       ├── frankfurt.json   # Frankfurt-specific bin rules
+│       └── cologne.json     # Cologne-specific bin rules
+├── i18n/
+│   ├── translations.ts      # All UI strings in EN and DE
+│   └── useTranslation.ts    # Hook: returns t (translations) + lang
+├── screens/
+│   ├── ScannerScreen.tsx    # Main barcode scanner
+│   ├── GuideScreen.tsx      # Full bin guide for reference
+│   └── HistoryScreen.tsx    # Last 50 scans
+├── services/
+│   ├── productService.ts    # Open Food Facts API calls
+│   └── rulesService.ts      # Material inference + bin lookup
+├── store/
+│   └── useAppStore.ts       # Zustand store (city, language, history)
+└── types/
+└── index.ts             # Shared TypeScript types
+
+---
+
+## How the Rules Engine Works
+
+Each city has a JSON file mapping material/packaging types to bin assignments. When a barcode is scanned:
+
+1. The barcode is sent to the **Open Food Facts API**
+2. Packaging type and material tags are extracted from the response
+3. The **material inference function** maps these to a known material key (e.g. `plastic_bottle`, `cardboard`, `glass_green`)
+4. The **rules engine** looks up that key in the active city's JSON file
+5. The result — bin type, label, colour, emoji, and tip — is displayed
+
+If a product is not found in the database, the app falls back to `unknown`, which maps to general waste (Restmüll) with a note to check the packaging.
+
+---
+
+## Adding a New City
+
+1. Create `src/data/rules/yourcity.json` following the same structure as `berlin.json`
+2. Add the city to `CITIES` in `src/store/useAppStore.ts`
+3. Add the `require()` entry in `rulesService.ts`
+4. Submit a pull request
+
+---
+
+## Data Source
+
+Product data is fetched from [Open Food Facts](https://world.openfoodfacts.org/) — a free, open, collaborative database of food products from around the world. No API key required.
+
+---
+
+## Roadmap
+
+- [ ] Visual search — photograph an item without a barcode
+- [ ] Expand to all 400 German Landkreise
+- [ ] Bin collection calendar with reminders
+- [ ] Recycling centre locator (map)
+- [ ] Offline product cache for top 50K products
+
+---
+
+## Contributing
+
+Pull requests are welcome, especially for:
+- New city rule files
+- Corrections to existing rules
+- Translations (Turkish, Arabic, Ukrainian planned)
+
+Please open an issue first for significant changes.
+
+---
+
+## License
+
+MIT — see [LICENSE](LICENSE) for details.
+
+---
+
+*Built as part of a portfolio of apps designed for people living in Germany.*
