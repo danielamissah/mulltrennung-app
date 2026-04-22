@@ -63,7 +63,7 @@ More cities coming soon. Rules are version-controlled JSON files — contributio
 ### Installation
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/mulltrennung-app.git
+git clone https://github.com/danielamissah/mulltrennung-app.git
 cd mulltrennung-app
 npm install
 npx expo start
