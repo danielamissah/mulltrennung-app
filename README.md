@@ -82,7 +82,7 @@ src/
 ├── data/
 │   └── rules/
 │       ├── berlin.json      # Berlin-specific bin rules
-│       ├── hamburg.json     # Hamburg-specfic bin rules
+│       ├── hamburg.json     # Hamburg-specific bin rules
 │       ├── munich.json      # Munich-specific bin rules
 │       ├── frankfurt.json   # Frankfurt-specific bin rules
 │       └── cologne.json     # Cologne-specific bin rules
@@ -99,9 +99,9 @@ src/
 ├── store/
 │   └── useAppStore.ts       # Zustand store (city, language, history)
 └── types/
-└── index.ts             # Shared TypeScript types
-
----
+    └── index.ts             # Shared TypeScript types
+    
+    ---
 
 ## How the Rules Engine Works
 
