@@ -1,0 +1,32 @@
+{
+  "city": "berlin",
+  "rules": {
+    "plastic_bottle": { "bin": "gelber_sack", "tip": "Flasche leeren und leicht zusammendrücken." },
+    "plastic_film": { "bin": "gelber_sack" },
+    "plastic_bag": { "bin": "gelber_sack" },
+    "plastic_tray": { "bin": "gelber_sack" },
+    "plastic_cup": { "bin": "gelber_sack" },
+    "plastic_lid": { "bin": "gelber_sack" },
+    "plastic_tube": { "bin": "gelber_sack" },
+    "metal_can": { "bin": "gelber_sack", "tip": "Dose ausspülen." },
+    "metal_tin": { "bin": "gelber_sack" },
+    "metal_foil": { "bin": "gelber_sack" },
+    "composite": { "bin": "gelber_sack", "tip": "Tetrapaks in den Gelben Sack." },
+    "cardboard": { "bin": "blaue_tonne", "tip": "Karton flach falten." },
+    "paper": { "bin": "blaue_tonne" },
+    "newspaper": { "bin": "blaue_tonne" },
+    "magazine": { "bin": "blaue_tonne" },
+    "glass_white": { "bin": "glas", "glasColor": "weiss", "tip": "Deckel abnehmen. Nur in Weißglas-Container." },
+    "glass_brown": { "bin": "glas", "glasColor": "braun", "tip": "Nur in Braunglas-Container." },
+    "glass_green": { "bin": "glas", "glasColor": "gruen", "tip": "Grünglas nimmt auch Buntglas an." },
+    "organic": { "bin": "braune_tonne", "tip": "Keine Plastikbeutel, auch keine kompostierbaren." },
+    "food_waste": { "bin": "braune_tonne" },
+    "battery": { "bin": "sondermuell", "tip": "Batterien an der Sammelbox im Supermarkt abgeben." },
+    "electronics": { "bin": "wertstoffhof", "tip": "Zum Wertstoffhof oder Elektro-Rücknahme im Handel." },
+    "styrofoam": { "bin": "restmuell", "tip": "Styropor kommt in den Restmüll in Berlin." },
+    "ceramics": { "bin": "restmuell" },
+    "nappies": { "bin": "restmuell" },
+    "cigarette": { "bin": "restmuell" },
+    "unknown": { "bin": "restmuell" }
+  }
+}
