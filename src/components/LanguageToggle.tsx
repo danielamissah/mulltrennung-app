@@ -2,6 +2,7 @@ import React from 'react';
 import { TouchableOpacity, Text, StyleSheet, View } from 'react-native';
 import { useAppStore } from '../store/useAppStore';
 import { Language } from '../i18n/translations';
+import { Colors } from '../theme/colors';
 
 export function LanguageToggle() {
   const { language, setLanguage } = useAppStore();
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1.5,
-    borderColor: '#43A047',
+    borderColor: Colors.primary,
     borderRadius: 20,
     overflow: 'hidden',
   },
@@ -41,20 +42,8 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     backgroundColor: 'transparent',
   },
-  optionActive: {
-    backgroundColor: '#43A047',
-  },
-  optionText: {
-    fontSize: 12,
-    fontWeight: '700',
-    color: '#43A047',
-  },
-  optionTextActive: {
-    color: '#fff',
-  },
-  divider: {
-    width: 1,
-    height: 20,
-    backgroundColor: '#43A047',
-  },
+  optionActive: { backgroundColor: Colors.primary },
+  optionText: { fontSize: 12, fontWeight: '700', color: Colors.primary },
+  optionTextActive: { color: Colors.white },
+  divider: { width: 1, height: 20, backgroundColor: Colors.primary },
 });

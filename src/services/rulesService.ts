@@ -6,11 +6,21 @@ const rulesCache: Record<string, RulesMap> = {};
 function loadRules(cityId: string): RulesMap {
   if (rulesCache[cityId]) return rulesCache[cityId];
   const files: Record<string, RulesMap> = {
-    berlin: require('../data/rules/berlin.json').rules,
-    hamburg: require('../data/rules/hamburg.json').rules,
-    munich: require('../data/rules/munich.json').rules,
-    frankfurt: require('../data/rules/frankfurt.json').rules,
-    cologne: require('../data/rules/cologne.json').rules,
+    berlin:     require('../data/rules/berlin.json').rules,
+    hamburg:    require('../data/rules/hamburg.json').rules,
+    munich:     require('../data/rules/munich.json').rules,
+    frankfurt:  require('../data/rules/frankfurt.json').rules,
+    cologne:    require('../data/rules/cologne.json').rules,
+    stuttgart:  require('../data/rules/stuttgart.json').rules,
+    dusseldorf: require('../data/rules/dusseldorf.json').rules,
+    dortmund:   require('../data/rules/dortmund.json').rules,
+    leipzig:    require('../data/rules/leipzig.json').rules,
+    bremen:     require('../data/rules/bremen.json').rules,
+    dresden:    require('../data/rules/dresden.json').rules,
+    nuremberg:  require('../data/rules/nuremberg.json').rules,
+    hanover:    require('../data/rules/hanover.json').rules,
+    duisburg:   require('../data/rules/duisburg.json').rules,
+    bochum:     require('../data/rules/bochum.json').rules,
   };
   const rules = files[cityId] ?? files['berlin'];
   rulesCache[cityId] = rules;

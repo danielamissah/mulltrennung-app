@@ -1,0 +1,32 @@
+{
+  "city": "bremen",
+  "rules": {
+    "plastic_bottle": { "bin": "gelber_sack" },
+    "plastic_film": { "bin": "gelber_sack" },
+    "plastic_bag": { "bin": "gelber_sack" },
+    "plastic_tray": { "bin": "gelber_sack" },
+    "plastic_cup": { "bin": "gelber_sack" },
+    "plastic_lid": { "bin": "gelber_sack" },
+    "plastic_tube": { "bin": "gelber_sack" },
+    "metal_can": { "bin": "gelber_sack" },
+    "metal_tin": { "bin": "gelber_sack" },
+    "metal_foil": { "bin": "gelber_sack" },
+    "composite": { "bin": "gelber_sack" },
+    "cardboard": { "bin": "blaue_tonne", "tip": "Karton flach falten." },
+    "paper": { "bin": "blaue_tonne" },
+    "newspaper": { "bin": "blaue_tonne" },
+    "magazine": { "bin": "blaue_tonne" },
+    "glass_white": { "bin": "glas", "glasColor": "weiss" },
+    "glass_brown": { "bin": "glas", "glasColor": "braun" },
+    "glass_green": { "bin": "glas", "glasColor": "gruen" },
+    "organic": { "bin": "braune_tonne" },
+    "food_waste": { "bin": "braune_tonne" },
+    "styrofoam": { "bin": "restmuell" },
+    "battery": { "bin": "sondermuell" },
+    "electronics": { "bin": "wertstoffhof" },
+    "ceramics": { "bin": "restmuell" },
+    "nappies": { "bin": "restmuell" },
+    "cigarette": { "bin": "restmuell" },
+    "unknown": { "bin": "restmuell" }
+  }
+}

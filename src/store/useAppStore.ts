@@ -8,6 +8,16 @@ export const CITIES: City[] = [
   { id: 'munich', name: 'München', bundesland: 'Bayern' },
   { id: 'frankfurt', name: 'Frankfurt', bundesland: 'Hessen' },
   { id: 'cologne', name: 'Köln', bundesland: 'NRW' },
+  { id: 'stuttgart', name: 'Stuttgart', bundesland: 'Baden-Württemberg' },
+  { id: 'dusseldorf', name: 'Düsseldorf', bundesland: 'NRW' },
+  { id: 'dortmund', name: 'Dortmund', bundesland: 'NRW' },
+  { id: 'leipzig', name: 'Leipzig', bundesland: 'Sachsen' },
+  { id: 'bremen', name: 'Bremen', bundesland: 'Bremen' },
+  { id: 'dresden', name: 'Dresden', bundesland: 'Sachsen' },
+  { id: 'nuremberg', name: 'Nürnberg', bundesland: 'Bayern' },
+  { id: 'hanover', name: 'Hannover', bundesland: 'Niedersachsen' },
+  { id: 'duisburg', name: 'Duisburg', bundesland: 'NRW' },
+  { id: 'bochum', name: 'Bochum', bundesland: 'NRW' },
 ];
 
 interface AppState {

@@ -11,13 +11,14 @@ import { BinCard } from '../components/BinCard';
 import { LanguageToggle } from '../components/LanguageToggle';
 import { BinResult } from '../types';
 import { Translations } from '../i18n/translations';
+import { Colors } from '../theme/colors';
 
-type View = 'categories' | 'items' | 'result';
+type ViewState = 'categories' | 'items' | 'result';
 
 export function BrowseScreen() {
   const { selectedCity } = useAppStore();
   const { t } = useTranslation();
-  const [view, setView] = useState<View>('categories');
+  const [view, setView] = useState<ViewState>('categories');
   const [activeCategory, setActiveCategory] = useState<ManualCategory | null>(null);
   const [activeItem, setActiveItem] = useState<ManualItem | null>(null);
   const [binResult, setBinResult] = useState<BinResult | null>(null);
@@ -65,12 +66,12 @@ export function BrowseScreen() {
           )}
           {view === 'items' && activeCategory && (
             <Text style={styles.title}>
-              {activeCategory.icon} {t[activeCategory.labelKey as keyof Translations] as string}
+              {activeCategory.icon}{'  '}{t[activeCategory.labelKey as keyof Translations] as string}
             </Text>
           )}
           {view === 'result' && activeItem && (
             <Text style={styles.title}>
-              {activeItem.icon} {t[activeItem.labelKey as keyof Translations] as string}
+              {activeItem.icon}{'  '}{t[activeItem.labelKey as keyof Translations] as string}
             </Text>
           )}
         </View>
@@ -124,8 +125,8 @@ export function BrowseScreen() {
         <ScrollView contentContainerStyle={styles.resultContainer}>
           <BinCard result={binResult} />
           <Text style={styles.cityNote}>{t.ruleNote}: {selectedCity.name}</Text>
-          <TouchableOpacity style={styles.btn} onPress={reset}>
-            <Text style={styles.btnText}>{t.manualBack} →</Text>
+          <TouchableOpacity style={styles.resetBtn} onPress={reset}>
+            <Text style={styles.resetBtnText}>← {t.manualBack}</Text>
           </TouchableOpacity>
         </ScrollView>
       )}
@@ -134,7 +135,7 @@ export function BrowseScreen() {
 }
 
 const styles = StyleSheet.create({
-  root: { flex: 1, backgroundColor: '#fff' },
+  root: { flex: 1, backgroundColor: Colors.white },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -143,16 +144,15 @@ const styles = StyleSheet.create({
     paddingTop: 60,
     paddingBottom: 16,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: '#eee',
+    borderBottomColor: Colors.border,
   },
   headerLeft: { flex: 1, marginRight: 12 },
-  backBtn: { flexDirection: 'row', alignItems: 'center', gap: 6, marginBottom: 2 },
-  backArrow: { fontSize: 20, color: '#43A047', lineHeight: 24 },
-  backText: { fontSize: 15, color: '#43A047', fontWeight: '600' },
-  title: { fontSize: 22, fontWeight: '800', color: '#1a1a1a' },
-  subtitle: { fontSize: 13, color: '#888', marginTop: 3 },
+  backBtn: { flexDirection: 'row', alignItems: 'center', gap: 4, marginBottom: 4 },
+  backArrow: { fontSize: 20, color: Colors.primary, lineHeight: 24 },
+  backText: { fontSize: 15, color: Colors.primary, fontWeight: '600' },
+  title: { fontSize: 22, fontWeight: '800', color: Colors.text },
+  subtitle: { fontSize: 13, color: Colors.textMuted, marginTop: 3 },
 
-  // Categories grid
   grid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
   },
   catCard: {
     width: '47%',
-    backgroundColor: '#F7F7F7',
+    backgroundColor: Colors.primaryLight,
     borderRadius: 16,
     padding: 20,
     alignItems: 'center',
@@ -173,12 +173,11 @@ const styles = StyleSheet.create({
   catLabel: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#1a1a1a',
+    color: Colors.primary,
     textAlign: 'center',
     lineHeight: 20,
   },
 
-  // Items list
   itemsList: { paddingVertical: 8 },
   itemRow: {
     flexDirection: 'row',
@@ -188,20 +187,23 @@ const styles = StyleSheet.create({
     gap: 14,
   },
   itemIcon: { fontSize: 28, width: 40, textAlign: 'center' },
-  itemLabel: { flex: 1, fontSize: 16, color: '#1a1a1a', fontWeight: '500' },
-  chevron: { fontSize: 22, color: '#ccc', fontWeight: '300' },
-  separator: { height: StyleSheet.hairlineWidth, backgroundColor: '#eee', marginLeft: 74 },
+  itemLabel: { flex: 1, fontSize: 16, color: Colors.text, fontWeight: '500' },
+  chevron: { fontSize: 22, color: Colors.textLight, fontWeight: '300' },
+  separator: {
+    height: StyleSheet.hairlineWidth,
+    backgroundColor: Colors.border,
+    marginLeft: 74,
+  },
 
-  // Result
   resultContainer: { padding: 24, alignItems: 'center' },
-  cityNote: { fontSize: 12, color: '#aaa', marginTop: 14 },
-  btn: {
+  cityNote: { fontSize: 12, color: Colors.textLight, marginTop: 14 },
+  resetBtn: {
     marginTop: 28,
     borderWidth: 1.5,
-    borderColor: '#43A047',
+    borderColor: Colors.primary,
     paddingHorizontal: 28,
     paddingVertical: 13,
     borderRadius: 30,
   },
-  btnText: { color: '#43A047', fontWeight: '700', fontSize: 15 },
+  resetBtnText: { color: Colors.primary, fontWeight: '700', fontSize: 15 },
 });

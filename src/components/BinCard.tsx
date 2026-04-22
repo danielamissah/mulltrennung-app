@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { BinResult } from '../types';
+import { Colors } from '../theme/colors';
 
 interface Props {
   result: BinResult;
@@ -29,6 +30,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     overflow: 'hidden',
     marginTop: 16,
+    width: '100%',
   },
   header: {
     flexDirection: 'row',
@@ -37,29 +39,15 @@ const styles = StyleSheet.create({
     paddingVertical: 18,
     gap: 12,
   },
-  emoji: {
-    fontSize: 32,
-  },
-  binLabel: {
-    fontSize: 18,
-    fontWeight: '700',
-    color: '#fff',
-    flexShrink: 1,
-  },
+  emoji: { fontSize: 32 },
+  binLabel: { fontSize: 18, fontWeight: '700', color: Colors.white, flexShrink: 1 },
   tipRow: {
     flexDirection: 'row',
     alignItems: 'flex-start',
     padding: 14,
     gap: 8,
-    backgroundColor: '#FAFAFA',
+    backgroundColor: Colors.surface,
   },
-  tipIcon: {
-    fontSize: 16,
-  },
-  tipText: {
-    fontSize: 14,
-    color: '#444',
-    flexShrink: 1,
-    lineHeight: 20,
-  },
+  tipIcon: { fontSize: 16 },
+  tipText: { fontSize: 14, color: '#444', flexShrink: 1, lineHeight: 20 },
 });

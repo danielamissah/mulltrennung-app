@@ -12,6 +12,7 @@ import { getBinForMaterial, inferMaterialFromProduct } from '../services/rulesSe
 import { useAppStore } from '../store/useAppStore';
 import { useTranslation } from '../i18n/useTranslation';
 import { ScanResult } from '../types';
+import { Colors } from '../theme/colors';
 
 export function ScannerScreen() {
   const { selectedCity, setCity, addScan } = useAppStore();
@@ -129,7 +130,7 @@ export function ScannerScreen() {
 }
 
 const styles = StyleSheet.create({
-  root: { flex: 1, backgroundColor: '#fff' },
+  root: { flex: 1, backgroundColor: Colors.white },
   content: { padding: 20, paddingTop: 60 },
   centered: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20 },
   titleRow: {
@@ -138,14 +139,14 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     marginBottom: 20,
   },
-  title: { fontSize: 26, fontWeight: '800', color: '#1a1a1a' },
-  subtitle: { fontSize: 13, color: '#888', marginTop: 4, maxWidth: 220 },
+  title: { fontSize: 26, fontWeight: '800', color: Colors.text },
+  subtitle: { fontSize: 13, color: Colors.textMuted, marginTop: 4, maxWidth: 220 },
   cameraWrapper: { borderRadius: 20, overflow: 'hidden', position: 'relative', marginBottom: 12 },
   camera: { width: '100%', height: 320 },
   scanOverlay: { ...StyleSheet.absoluteFillObject, justifyContent: 'center', alignItems: 'center' },
   scanFrame: {
     width: 220, height: 140,
-    borderWidth: 3, borderColor: '#43A047',
+    borderWidth: 3, borderColor: Colors.accent,
     borderRadius: 12, backgroundColor: 'transparent',
   },
   loadingOverlay: {
@@ -153,14 +154,54 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0.55)',
     justifyContent: 'center', alignItems: 'center', gap: 12,
   },
-  loadingText: { color: '#fff', fontSize: 15 },
-  hint: { textAlign: 'center', color: '#777', fontSize: 13, marginTop: 10 },
+  loadingText: { color: Colors.white, fontSize: 15 },
+  hint: { textAlign: 'center', color: Colors.textMuted, fontSize: 13, marginTop: 10 },
   resultContainer: { alignItems: 'center' },
   productImage: { width: 140, height: 140, marginBottom: 12, borderRadius: 12 },
-  productName: { fontSize: 20, fontWeight: '700', textAlign: 'center', color: '#1a1a1a' },
-  productBrand: { fontSize: 14, color: '#888', marginTop: 4 },
-  cityNote: { fontSize: 12, color: '#aaa', marginTop: 12 },
-  btn: { marginTop: 20, backgroundColor: '#43A047', paddingHorizontal: 28, paddingVertical: 14, borderRadius: 30 },
-  btnText: { color: '#fff', fontWeight: '700', fontSize: 15 },
+  productName: { fontSize: 20, fontWeight: '700', textAlign: 'center', color: Colors.text },
+  productBrand: { fontSize: 14, color: Colors.textMuted, marginTop: 4 },
+  cityNote: { fontSize: 12, color: Colors.textLight, marginTop: 12 },
+  btn: {
+    marginTop: 20, backgroundColor: Colors.primary,
+    paddingHorizontal: 28, paddingVertical: 14, borderRadius: 30,
+  },
+  btnText: { color: Colors.white, fontWeight: '700', fontSize: 15 },
   permText: { fontSize: 16, textAlign: 'center', marginBottom: 16, color: '#444' },
 });
+
+// const styles = StyleSheet.create({
+//   root: { flex: 1, backgroundColor: '#fff' },
+//   content: { padding: 20, paddingTop: 60 },
+//   centered: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20 },
+//   titleRow: {
+//     flexDirection: 'row',
+//     justifyContent: 'space-between',
+//     alignItems: 'flex-start',
+//     marginBottom: 20,
+//   },
+//   title: { fontSize: 26, fontWeight: '800', color: '#1a1a1a' },
+//   subtitle: { fontSize: 13, color: '#888', marginTop: 4, maxWidth: 220 },
+//   cameraWrapper: { borderRadius: 20, overflow: 'hidden', position: 'relative', marginBottom: 12 },
+//   camera: { width: '100%', height: 320 },
+//   scanOverlay: { ...StyleSheet.absoluteFillObject, justifyContent: 'center', alignItems: 'center' },
+//   scanFrame: {
+//     width: 220, height: 140,
+//     borderWidth: 3, borderColor: '#43A047',
+//     borderRadius: 12, backgroundColor: 'transparent',
+//   },
+//   loadingOverlay: {
+//     ...StyleSheet.absoluteFillObject,
+//     backgroundColor: 'rgba(0,0,0,0.55)',
+//     justifyContent: 'center', alignItems: 'center', gap: 12,
+//   },
+//   loadingText: { color: '#fff', fontSize: 15 },
+//   hint: { textAlign: 'center', color: '#777', fontSize: 13, marginTop: 10 },
+//   resultContainer: { alignItems: 'center' },
+//   productImage: { width: 140, height: 140, marginBottom: 12, borderRadius: 12 },
+//   productName: { fontSize: 20, fontWeight: '700', textAlign: 'center', color: '#1a1a1a' },
+//   productBrand: { fontSize: 14, color: '#888', marginTop: 4 },
+//   cityNote: { fontSize: 12, color: '#aaa', marginTop: 12 },
+//   btn: { marginTop: 20, backgroundColor: '#43A047', paddingHorizontal: 28, paddingVertical: 14, borderRadius: 30 },
+//   btnText: { color: '#fff', fontWeight: '700', fontSize: 15 },
+//   permText: { fontSize: 16, textAlign: 'center', marginBottom: 16, color: '#444' },
+// });
