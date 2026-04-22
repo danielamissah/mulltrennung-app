@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { ScannerScreen } from './src/screens/ScannerScreen';
 import { HistoryScreen } from './src/screens/HistoryScreen';
 import { GuideScreen } from './src/screens/GuideScreen';
+import { BrowseScreen } from './src/screens/BrowseScreen';
 import { useTranslation } from './src/i18n/useTranslation';
 
 const Tab = createBottomTabNavigator();
@@ -26,6 +27,14 @@ function Tabs() {
         options={{
           tabBarLabel: t.tabScanner,
           tabBarIcon: ({ color }) => <Text style={{ fontSize: 20, color }}>📷</Text>,
+        }}
+      />
+      <Tab.Screen
+        name="Browse"
+        component={BrowseScreen}
+        options={{
+          tabBarLabel: t.tabBrowse,
+          tabBarIcon: ({ color }) => <Text style={{ fontSize: 20, color }}>🔍</Text>,
         }}
       />
       <Tab.Screen
