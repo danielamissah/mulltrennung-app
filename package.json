@@ -28,6 +28,9 @@
   "devDependencies": {
     "@types/react": "~19.1.0",
     "@types/react-native": "^0.72.8",
+    "@typescript-eslint/eslint-plugin": "^8.59.0",
+    "@typescript-eslint/parser": "^8.59.0",
+    "eslint-config-expo": "^55.0.0",
     "typescript": "~5.9.2"
   },
   "private": true

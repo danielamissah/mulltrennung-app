@@ -1,0 +1,30 @@
+# Dependabot keeps dependencies up to date automatically.
+# Creates PRs weekly — CI runs on each one so regressions are caught early.
+# Version updates are grouped by ecosystem to avoid PR noise.
+
+version: 2
+
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "09:00"
+      timezone: "Europe/Berlin"
+    # Group all non-major updates into one PR per week
+    groups:
+      minor-and-patch:
+        update-types:
+          - minor
+          - patch
+    # Expo SDK major updates need careful manual review
+    ignore:
+      - dependency-name: "expo"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "react-native"
+        update-types: ["version-update:semver-major"]
+    labels:
+      - dependencies
+    commit-message:
+      prefix: "chore"

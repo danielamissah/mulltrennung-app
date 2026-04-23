@@ -7,6 +7,13 @@ import { HistoryScreen } from './src/screens/HistoryScreen';
 import { GuideScreen } from './src/screens/GuideScreen';
 import { BrowseScreen } from './src/screens/BrowseScreen';
 import { useTranslation } from './src/i18n/useTranslation';
+import { validateEnv } from './src/utils/validateEnv';
+
+// Validate environment variables at startup in development.
+// Fails loudly rather than causing confusing runtime errors later.
+if (__DEV__) {
+  validateEnv();
+}
 
 const Tab = createBottomTabNavigator();
 
